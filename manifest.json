@@ -1,0 +1,16 @@
+{
+	"name": "HipChat Message Notifier",
+	"version": "1.0",
+	"manifest_version": 2,
+	"content_scripts": [
+		{
+			"matches": [
+				"https://*.hipchat.com/chat"
+			],
+			"js": [
+				"notificon/notificon.js", 
+				"hipchat-favicon.js"
+			]
+		}
+	]
+}
