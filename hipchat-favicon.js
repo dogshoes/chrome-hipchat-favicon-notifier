@@ -25,7 +25,7 @@
             blurred = true;
         } else {
             blurred = false;
-            Tinycon.setBubble('');
+            Tinycon.setBubble(0);
         }
     });
 
@@ -55,8 +55,8 @@
             return;
         }
 
-        var isDiv = element.tagName.toLowerCase() == 'div';
-        var isPara = element.tagName.toLowerCase() == 'p';
+        var isDiv = element.tagName.toLowerCase() == 'div',
+            isPara = element.tagName.toLowerCase() == 'p';
 
         if (!isDiv && !isPara) {
             return;
