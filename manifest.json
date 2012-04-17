@@ -1,5 +1,6 @@
 {
 	"name": "HipChat Message Notifier",
+	"description": "Displays a notification bubble in the favicon of a blurred HipChat tab indicating the number of missed messages.",
 	"version": "1.0",
 	"manifest_version": 2,
 	"content_scripts": [
