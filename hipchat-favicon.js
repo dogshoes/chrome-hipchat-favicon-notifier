@@ -3,7 +3,7 @@
         blurred = document.webkitHidden,
         chatsElement = document.getElementById('chats'),
         chats = {},
-        debug = true;
+        debug = false;
 
     var ResetCount = function() {
         count = 0;
