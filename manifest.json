@@ -8,7 +8,7 @@
 				"https://*.hipchat.com/chat"
 			],
 			"js": [
-				"notificon/notificon.js", 
+				"tinycon/tinycon.js", 
 				"hipchat-favicon.js"
 			]
 		}

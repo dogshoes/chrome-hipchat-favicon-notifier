@@ -3,30 +3,20 @@
         blurred = document.webkitHidden,
         chatsElement = document.getElementById('chats'),
         chats = {},
-        debug = true,
-        iconargs = { 
-            color : '#FFFFFF', 
-            stroke: 'rgba(255,64,64,.9)', 
-            // Notificon doesn't seem to enjoy the favicon it finds.  Manually
-            // point it to the local favicon.ico which it has a better time.
-            favicon: window.location.origin + '/favicon.ico' 
-        };
+        debug = true;
 
     var ResetCount = function() {
         count = 0;
-        Notificon.reset();
+         Tinycon.setBubble(0);
     }
 
     var BumpCount = function() {
-        var label = '';
-        if (count >= 99) {
-            // Since we can only show two caracters well, wrap to infinity.
-            label = '∞';
-        } else {
-            label = ++count + '';
+		// Cap at 99 since the favicon can really only show two digits.
+        if (count < 99) {
+            count++;
         }
 
-        Notificon(label, iconargs);
+        Tinycon.setBubble(count);
     }
 
     // https://developers.google.com/chrome/whitepapers/pagevisibility
@@ -35,7 +25,7 @@
             blurred = true;
         } else {
             blurred = false;
-            ResetCount();
+            Tinycon.setBubble('');
         }
     });
 
