@@ -1,4 +1,12 @@
-﻿(function() {
+/**
+ * Chrome HipChat message notifier
+ *
+ * Copyright 2012 John Ehringer <jhe@5khz.com>
+ *
+ * Licensed under the terms and conditions of the MIT license.
+ */
+
+(function() {
     var count = 0,
         blurred = document.webkitHidden,
         chatsElement = document.getElementById('chats'),
