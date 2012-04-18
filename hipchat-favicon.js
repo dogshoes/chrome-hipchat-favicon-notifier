@@ -2,12 +2,11 @@
     var count = 0,
         blurred = document.webkitHidden,
         chatsElement = document.getElementById('chats'),
-        chats = {},
-        debug = false;
+        chats = {};
 
     var ResetCount = function() {
         count = 0;
-         Tinycon.setBubble(0);
+        Tinycon.setBubble(0);
     }
 
     var BumpCount = function() {
@@ -21,11 +20,10 @@
 
     // https://developers.google.com/chrome/whitepapers/pagevisibility
     document.addEventListener('webkitvisibilitychange', function() {
-        if (document.webkitHidden) {
-            blurred = true;
-        } else {
-            blurred = false;
-            Tinycon.setBubble(0);
+        blurred = document.webkitHidden;
+
+        if (!blurred) {
+            ResetCount();
         }
     });
 
@@ -76,7 +74,7 @@
         if (isDiv && elementIsChatBlockContainer(element)) {
             var chatBlockElement = element.childNodes[0];
 
-            if (chatBlockElement.classList.contains('me') && !debug) {
+            if (chatBlockElement.classList.contains('me')) {
                 // Don't care about messages from myself that were manually
                 // entered or came from other sources.
                 return;
@@ -106,7 +104,7 @@
 
             if (!chats[jid]) {
                 return;
-            } else if (!blurred && !debug) {
+            } else if (!blurred) {
                 return;
             }
 
@@ -120,7 +118,7 @@
 
             if (!chatBlockElement) {
                 return;
-            } else if (chatBlockElement.classList.contains('me') && !debug) {
+            } else if (chatBlockElement.classList.contains('me')) {
                 return;
             }
 
@@ -136,7 +134,7 @@
 
             if (!chats[jid]) {
                 return;
-            } else if (!blurred && !debug) {
+            } else if (!blurred) {
                 return;
             }
 
